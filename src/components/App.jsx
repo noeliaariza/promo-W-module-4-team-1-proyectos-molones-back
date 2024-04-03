@@ -7,6 +7,8 @@ import Footer from "./Footer";
 import localStorage from "../services/localStorage";
 import "../scss/App.scss";
 import "../scss/components/Main.scss";
+import { Routes, Route } from "react-router-dom";
+import ProjectList from "./projects/ProjectList";
 
 function App() {
   const [infoProject, setInfoProject] = useState(
@@ -58,17 +60,29 @@ function App() {
           <p className="hero__text">
             Escaparate en línea para recoger ideas a través de la tecnología
           </p>
-          <LinkButton textContent="Ver proyectos" />
+
+          {/* <LinkButton to="/projectlist" textContent="Ver proyectos" /> */}
         </section>
 
-        <Preview infoProject={infoProject} cardUrl={url} />
-        <Form
-          onClickSave={onClickSave}
-          onChangeValue={handleProjectInfo}
-          cardUrl={url}
-          infoProject={infoProject}
-        />
+        <Routes>
+          <Route path="/" element={<ProjectList />} />
+          <Route
+            path="/addnewproject"
+            element={
+              <>
+                <Preview infoProject={infoProject} cardUrl={url} />
+                <Form
+                  onClickSave={onClickSave}
+                  onChangeValue={handleProjectInfo}
+                  cardUrl={url}
+                  infoProject={infoProject}
+                />
+              </>
+            }
+          />
+        </Routes>
       </main>
+
       <Footer />
     </div>
   );
