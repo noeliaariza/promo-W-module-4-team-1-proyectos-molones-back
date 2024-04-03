@@ -1,0 +1,22 @@
+.button {
+  display: block;
+  min-width: 120px;
+  max-width: 150px;
+
+  margin: 8px;
+  padding: 5px 18px;
+  color: var(--color-white);
+  font: var(--font-button);
+  text-transform: none;
+  text-decoration: none;
+  text-align: center;
+
+  border-radius: 40px;
+  background-image: linear-gradient(
+    to right,
+    var(--color-dark-lilac) -2%,
+    #c0b7e8 98%
+  );
+
+  cursor: pointer;
+}

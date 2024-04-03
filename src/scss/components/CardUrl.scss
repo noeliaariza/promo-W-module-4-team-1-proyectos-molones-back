@@ -1,0 +1,12 @@
+.messageCardCreated {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 3px dashed black;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+}
+p {
+  color: black;
+}
