@@ -14,6 +14,7 @@
 }
 
 .card {
+  
   display: grid;
   grid-template-columns: 40% 60%;
 
@@ -97,8 +98,11 @@
 .card .card__job {
   margin-bottom: 0.2rem;
 }
-
+.centerName {
+  text-align: center;
+}
 .card .card__name {
+  
   font: var(--font-card-title);
   margin-bottom: 0.2rem;
 }

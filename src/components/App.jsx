@@ -29,6 +29,23 @@ function App() {
     }
   );
 
+  // const [formInfo, setFormInfo] = useState(
+  //   localStorage.get('infoProject') || {
+  //     name: '',
+  //     slogan: '',
+  //     repo: '',
+  //     demo: '',
+  //     technologies: '',
+  //     desc: '',
+  //     autor: '',
+  //     job: '',
+  //     image:
+  //       '',
+  //     photo:
+  //       '',
+  //   }
+  // );
+
   const [url, setUrl] = useState('');
 
   const handleProjectInfo = (value, id) => {
@@ -62,7 +79,7 @@ function App() {
               <Header />
 
               <Hero />
-              <ProjectList />
+              <ProjectList infoProject={infoProject} />
             </>
           }
         />

@@ -27,11 +27,11 @@ function Preview({ infoProject }) {
             }}
           ></div>
           <p className="card__job">{infoProject.job}</p>
-          <h3 className="card__name">{infoProject.autor}</h3>
+          <h3 className="card__name centerName">{infoProject.autor}</h3>
         </div>
 
         <div className="card__project">
-          <h3 className="card__name">{infoProject.name}</h3>
+          <h3 className="card__name ">{infoProject.name}</h3>
           <p className="card__slogan">{infoProject.slogan}</p>
           <h3 className="card__descriptionTitle">
             {infoProject.descriptionTitle}

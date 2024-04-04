@@ -1,23 +1,26 @@
 import LinkButton from '../LinkButton';
 import { Link } from 'react-router-dom';
+import ProjectCard from './ProjectCard';
+import PropTypes from "prop-types";
 
-function ProjectList() {
+function ProjectList({infoProject}) {
   return (
     <div>
       <main>
-        {/* <section className='hero'>
-          <h2 className='title'>Proyectos molones</h2>
-          <p className='hero__text'>
-            Escaparate en línea para recoger ideas a través de la tecnología
-          </p> */}
-
-        {/* </section> */}
+       
         <Link to={'/addnewproject'}>
           <LinkButton textContent='Nuevo proyecto' />
         </Link>
+        <ProjectCard infoProject={infoProject}/>
+        <ProjectCard infoProject={infoProject}/>
+        <ProjectCard infoProject={infoProject}/>
+        <ProjectCard infoProject={infoProject}/>
       </main>
     </div>
   );
 }
+ProjectList.propTypes = {
+  infoProject: PropTypes.object,
+};
 
 export default ProjectList;
