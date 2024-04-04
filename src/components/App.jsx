@@ -14,14 +14,14 @@ import Hero from './Hero';
 function App() {
   const [infoProject, setInfoProject] = useState(
     localStorage.get('infoProject') || {
-      name: 'cREACTivas',
-      slogan: 'Hasta el push y más allá',
+      name: '',
+      slogan: '',
       repo: '',
       demo: '',
-      technologies: 'React JS - HTML - CSS',
-      desc: `Nunca nos damos por vencidas, encontraremos la pieza que falta en el código hasta lograr aquello que se busca. Ningún bug nos doblegará, ningún conflicto podrá con nosotras.`,
-      autor: 'Margarita Hamilton',
-      job: 'Full stack Developer',
+      technologies: '',
+      desc: '',
+      autor: '',
+      job: '',
       image:
         'https://afiescuela.storage.googleapis.com/cms_multimedia/cms_medias/files/000/001/538/original/margaret.png?1607668400',
       photo:
@@ -29,22 +29,7 @@ function App() {
     }
   );
 
-  // const [formInfo, setFormInfo] = useState(
-  //   localStorage.get('infoProject') || {
-  //     name: '',
-  //     slogan: '',
-  //     repo: '',
-  //     demo: '',
-  //     technologies: '',
-  //     desc: '',
-  //     autor: '',
-  //     job: '',
-  //     image:
-  //       '',
-  //     photo:
-  //       '',
-  //   }
-  // );
+
 
   const [url, setUrl] = useState('');
 
