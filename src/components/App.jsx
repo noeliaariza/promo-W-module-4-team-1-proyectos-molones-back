@@ -9,6 +9,7 @@ import '../scss/App.scss';
 import '../scss/components/Main.scss';
 import { Routes, Route } from 'react-router-dom';
 import ProjectList from './projects/ProjectList';
+import Hero from './Hero';
 
 function App() {
   const [infoProject, setInfoProject] = useState(
@@ -53,21 +54,27 @@ function App() {
 
   return (
     <div className='container'>
-      <Header />
-      <main className='main'>
-        <section className='hero'>
-          <h2 className='title'>Proyectos molones</h2>
-          <p className='hero__text'>
-            Escaparate en línea para recoger ideas a través de la tecnología
-          </p>
-        </section>
+      <Routes>
+        <Route
+          path='/'
+          element={
+            <>
+              <Header />
 
-        <Routes>
-          <Route path='/' element={<ProjectList />} />
-          <Route
-            path='/addnewproject'
-            element={
-              <>
+              <Hero />
+              <ProjectList />
+            </>
+          }
+        />
+        <Route
+          path='/addnewproject'
+          element={
+            <>
+              <Header />
+              <Hero />
+
+              <LinkButton to='/projectlist' textContent='Ver proyectos' />
+              <main className='main'>
                 <Preview infoProject={infoProject} cardUrl={url} />
                 <Form
                   onClickSave={onClickSave}
@@ -75,11 +82,11 @@ function App() {
                   cardUrl={url}
                   infoProject={infoProject}
                 />
-              </>
-            }
-          />
-        </Routes>
-      </main>
+              </main>
+            </>
+          }
+        />
+      </Routes>
 
       <Footer />
     </div>

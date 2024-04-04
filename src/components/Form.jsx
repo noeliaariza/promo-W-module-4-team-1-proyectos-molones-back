@@ -22,7 +22,6 @@ function Form({ onChangeValue, onClickSave, cardUrl, infoProject }) {
         onClickSave();
       }}
     >
-      <LinkButton to='/projectlist' textContent='Ver proyectos' />
       <h2 className='title'>Información</h2>
       <fieldset className='addForm__group'>
         <legend className='addForm__title'>Cuéntanos sobre el proyecto</legend>
