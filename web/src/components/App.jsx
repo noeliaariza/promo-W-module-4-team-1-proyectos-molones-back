@@ -38,6 +38,19 @@ function App() {
     console.log(infoProject);
   };
 
+  // let projectlistData = [];
+
+  // const getProjectList = async() => {
+    
+  //   const response = await fetch("/projectlist");
+  //   const data = await response.json();
+  //   console.log(data);
+  //   projectlistData = data.message; 
+  //   console.log(projectlistData);
+  // }
+  // getProjectList();
+  
+
   const onClickSave = () => {
     fetch('https://dev.adalab.es/api/projectCard', {
       method: 'POST',
