@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './Header';
 import Preview from './Preview';
 import LinkButton from './LinkButton';
@@ -38,17 +38,24 @@ function App() {
     console.log(infoProject);
   };
 
-  // let projectlistData = [];
+ 
+  const [projectlistData, setProjectlistData] = useState([]);
 
-  // const getProjectList = async() => {
-    
-  //   const response = await fetch("/projectlist");
-  //   const data = await response.json();
-  //   console.log(data);
-  //   projectlistData = data.message; 
-  //   console.log(projectlistData);
-  // }
-  // getProjectList();
+  const getProjectList = async() => {
+    try {
+      const response = await fetch("/projectlist");
+      const data = await response.json();
+      console.log(data);
+      setProjectlistData(data.message);
+      console.log(projectlistData);
+    } catch (error) {
+      console.error("Error fetching project list:", error);
+    }
+  }
+
+  useEffect(() => {
+    getProjectList();
+  }, []);
   
 
   const onClickSave = () => {
