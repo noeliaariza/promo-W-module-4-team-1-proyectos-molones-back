@@ -23,15 +23,17 @@ function Form({ onChangeValue, onClickSave, cardUrl, infoProject }) {
       }}
     >
       <h2 className='title'>Información</h2>
+
       <fieldset className='addForm__group'>
         <legend className='addForm__title'>Cuéntanos sobre el proyecto</legend>
+        <p className='title2'>Los campos marcados con * son obligatorios</p>
         <input
           className='addForm__input'
           type='text'
           name='name'
           id='name'
           value={infoProject.name}
-          placeholder='Nombre del proyecto'
+          placeholder='Nombre del proyecto *'
           onChange={handleInfoProject}
         />
         <input
@@ -40,7 +42,7 @@ function Form({ onChangeValue, onClickSave, cardUrl, infoProject }) {
           name='slogan'
           id='slogan'
           value={infoProject.slogan}
-          placeholder='Slogan'
+          placeholder='Slogan *'
           onChange={handleInfoProject}
         />
         <div className='addForm__2col'>
@@ -50,16 +52,16 @@ function Form({ onChangeValue, onClickSave, cardUrl, infoProject }) {
             name='repo'
             id='repo'
             value={infoProject.repo}
-            placeholder='Repositorio'
+            placeholder='Repositorio *'
             onChange={handleInfoProject}
           />
           <input
             className='addForm__input'
             type='url'
             name='demo'
-            id='demo'
+            id='demo '
             value={infoProject.demo}
-            placeholder='Demo'
+            placeholder='Demo *'
             onChange={handleInfoProject}
           />
         </div>
@@ -69,7 +71,7 @@ function Form({ onChangeValue, onClickSave, cardUrl, infoProject }) {
           name='technologies'
           id='technologies'
           value={infoProject.technologies}
-          placeholder='Tecnologías'
+          placeholder='Tecnologías *'
           onChange={handleInfoProject}
         />
 
@@ -78,7 +80,7 @@ function Form({ onChangeValue, onClickSave, cardUrl, infoProject }) {
           type='text'
           name='desc'
           id='desc'
-          placeholder='Descripción'
+          placeholder='Descripción *'
           value={infoProject.desc}
           rows='5'
           onChange={handleInfoProject}
@@ -93,7 +95,7 @@ function Form({ onChangeValue, onClickSave, cardUrl, infoProject }) {
           name='autor'
           id='autor'
           value={infoProject.autor}
-          placeholder='Nombre'
+          placeholder='Nombre *'
           onChange={handleInfoProject}
         />
         <input
@@ -102,7 +104,7 @@ function Form({ onChangeValue, onClickSave, cardUrl, infoProject }) {
           name='job'
           id='job'
           value={infoProject.job}
-          placeholder='Trabajo'
+          placeholder='Trabajo *'
           onChange={handleInfoProject}
         />
       </fieldset>

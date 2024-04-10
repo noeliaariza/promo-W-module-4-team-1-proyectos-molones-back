@@ -19,12 +19,14 @@
 }
 
 .hero .title {
-  font: var(--font-title-big);
+  // font: var(--font-title-big);
+  font-size: 50px;
   margin-bottom: 8px;
 }
 
 .hero .hero__text {
   font: var(--font-text-big);
+  font-size: 20px;
   text-align: center;
   margin-inline: 4rem;
   margin-bottom: 1.8rem;
@@ -41,8 +43,15 @@
   background-image: radial-gradient(
     circle at 50% 50%,
     var(--color-dusk),
-    #211e2e 92%
+    #bc4b51 92%
   );
+}
+.title2 {
+  color: white;
+  text-align: center;
+  padding: 5px;
+  font: var(--font-title-brand);
+  font-size: 20px;
 }
 
 .addForm .title {
@@ -62,7 +71,7 @@
 }
 
 .addForm .addForm__title:before {
-  content: "";
+  content: '';
   position: absolute;
   top: 100%;
   right: 0;
@@ -148,9 +157,9 @@
 }
 
 .icon__www {
-  background-image: url("../../images/icons/globe-solid.svg");
+  background-image: url('../../images/icons/globe-solid.svg');
 }
 
 .icon__github {
-  background-image: url("../../images/icons/github.svg");
+  background-image: url('../../images/icons/github.svg');
 }

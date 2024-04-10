@@ -1,27 +1,27 @@
 .button--large {
-    display: block;
-    width: 145px;
-  
-    margin-inline: auto;
-    margin-block: 8px;
-    padding: 5px 18px;
-    color: var(--color-white);
-    font: var(--font-button);
-    text-transform: none;
-    text-decoration: none;
-    text-align: center;
-  
-    border-radius: 40px;
-    background-color: transparent;
-    background-image: linear-gradient(
-      to right,
-      var(--color-dark-lilac) -2%,
-      #c0b7e8 98%
-    );
-  
-    cursor: pointer;
-  }
-  
-  .button--large:hover {
-    border-color: var(--color-white);
-  }
+  display: block;
+  width: 145px;
+
+  margin-inline: auto;
+  margin-block: 8px;
+  padding: 5px 18px;
+  color: var(--color-white);
+  font: var(--font-button);
+  text-transform: none;
+  text-decoration: none;
+  text-align: center;
+
+  border-radius: 40px;
+  background-color: transparent;
+  background-image: linear-gradient(
+    to right,
+    var(--color-dark-lilac) -2%,
+    #6a040f 98%
+  );
+
+  cursor: pointer;
+}
+
+.button--large:hover {
+  border-color: var(--color-white);
+}

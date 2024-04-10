@@ -32,14 +32,14 @@
   background-image: linear-gradient(
     to right,
     var(--color-dark-lilac) -2%,
-    #c0b7e8 98%
+    #6a040f 98%
   );
 
   cursor: pointer;
 
-.get-avatar__upload-field {
-  display: none;
-}
+  .get-avatar__upload-field {
+    display: none;
+  }
 }
 
 .get-avatar__preview {
@@ -52,4 +52,3 @@
   margin-left: 15px;
   width: 50px;
 }
- 

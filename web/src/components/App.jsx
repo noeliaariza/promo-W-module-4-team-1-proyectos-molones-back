@@ -29,8 +29,6 @@ function App() {
     }
   );
 
-
-
   const [url, setUrl] = useState('');
 
   const handleProjectInfo = (value, id) => {
@@ -38,25 +36,23 @@ function App() {
     console.log(infoProject);
   };
 
- 
   const [projectlistData, setProjectlistData] = useState([]);
 
-  const getProjectList = async() => {
+  const getProjectList = async () => {
     try {
-      const response = await fetch("/projectlist");
+      const response = await fetch('/projectlist');
       const data = await response.json();
       console.log(data);
       setProjectlistData(data.message);
       console.log(projectlistData);
     } catch (error) {
-      console.error("Error fetching project list:", error);
+      console.error('Error fetching project list:', error);
     }
-  }
+  };
 
   useEffect(() => {
     getProjectList();
   }, []);
-  
 
   const onClickSave = () => {
     fetch('https://dev.adalab.es/api/projectCard', {
