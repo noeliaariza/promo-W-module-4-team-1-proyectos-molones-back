@@ -22,10 +22,8 @@ function App() {
       desc: "",
       autor: "",
       job: "",
-      image:
-        "https://afiescuela.storage.googleapis.com/cms_multimedia/cms_medias/files/000/001/538/original/margaret.png?1607668400",
-      photo:
-        "https://cdn.evalart.com/wp-content/uploads/2019/06/MujeresenTIPioneras.png",
+      image: "",
+      photo: "",
     }
   );
 
@@ -35,7 +33,7 @@ function App() {
 
   const handleProjectInfo = (value, id) => {
     setInfoProject({ ...infoProject, [id]: value });
-    console.log("info", infoProject);
+    //console.log("info", infoProject);
   };
 
   const [projectlistData, setProjectlistData] = useState([]);
@@ -44,9 +42,9 @@ function App() {
     try {
       const response = await fetch("http://localhost:3000/projectlist");
       const data = await response.json();
-      console.log("data", data);
+      //console.log("data", data);
       setProjectlistData(data.message);
-      console.log("hola", projectlistData);
+      //console.log("hola", projectlistData);
     } catch (error) {
       console.error("Error fetching project list:", error);
     }
@@ -56,20 +54,28 @@ function App() {
     getProjectList();
   }, []);
 
-  const onClickSave = () => {
-    fetch("https://dev.adalab.es/api/projectCard", {
-      method: "POST",
-      body: JSON.stringify(infoProject),
-      headers: { "Content-type": "application/json" },
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        setUrl(result.cardURL);
-        console.log("result", result);
-        if (result.success) {
-          localStorage.set("infoProject", infoProject);
-        }
+  const onClickSave = async () => {
+    // Hacer el fetch con los datos del estado formData
+    try {
+      const response = await fetch("http://localhost:3000/newproject", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(infoProject),
       });
+
+      if (response.ok) {
+        const result = await response.json();
+        setUrl(result.id);
+        console.log("Datos enviados correctamente");
+      } else {
+        // Manejar errores en caso de respuesta no exitosa
+        console.error("Error al enviar los datos");
+      }
+    } catch (error) {
+      console.error("Error en la solicitud:", error);
+    }
   };
   return (
     <div className="container">
