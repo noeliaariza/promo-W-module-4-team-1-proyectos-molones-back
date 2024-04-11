@@ -1,20 +1,21 @@
-import LinkButton from '../LinkButton';
-import { Link } from 'react-router-dom';
-import ProjectCard from './ProjectCard';
+import LinkButton from "../LinkButton";
+import { Link } from "react-router-dom";
+import ProjectCard from "./ProjectCard";
 import PropTypes from "prop-types";
 
-function ProjectList({infoProject}) {
+function ProjectList({ projectlistData }) {
   return (
     <div>
       <main>
-       
-        <Link to={'/addnewproject'}>
-          <LinkButton textContent='Nuevo proyecto' />
+        <Link to={"/addnewproject"}>
+          <LinkButton textContent="Nuevo proyecto" />
         </Link>
-        <ProjectCard infoProject={infoProject}/>
-        <ProjectCard infoProject={infoProject}/>
-        <ProjectCard infoProject={infoProject}/>
-        <ProjectCard infoProject={infoProject}/>
+
+        <ul className="projectsList">
+          {projectlistData.map((project) => {
+            return <ProjectCard project={project} key={project.id_project} />;
+          })}
+        </ul>
       </main>
     </div>
   );
