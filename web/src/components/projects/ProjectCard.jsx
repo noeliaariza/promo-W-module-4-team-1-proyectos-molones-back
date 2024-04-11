@@ -17,7 +17,7 @@ function ProjectCard({ infoProject }) {
         ></div>
         <p className='card__job'>{infoProject.job || 'Full stack Developer'}</p>
         <h3 className='card__name centerName'>
-          {infoProject.autor || 'Margarita Hamilton'}
+          {projectResult || 'Margarita Hamilton'}
         </h3>
       </div>
 
@@ -26,9 +26,7 @@ function ProjectCard({ infoProject }) {
         <p className='card__slogan'>
           {infoProject.slogan || 'Hasta el push y más allá'}
         </p>
-        {/* <h3 className='card__descriptionTitle'>
-          {infoProject.descriptionTitle}
-        </h3> */}
+
         <p className='card__description'>
           {infoProject.desc ||
             'Nunca nos damos por vencidas, encontraremos la pieza que falta en el código hasta lograr aquello que se busca. Ningún bug nos doblegará, ningún conflicto podrá con nosotras.'}

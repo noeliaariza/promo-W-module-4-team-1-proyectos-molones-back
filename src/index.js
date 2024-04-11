@@ -4,6 +4,7 @@ const mysql = require('mysql2/promise');
 const server = express();
 
 server.use(cors());
+server.use(express.json({ limit: '25mb' }));
 
 const getDBConnection = async () => {
   const connection = await mysql.createConnection({
@@ -64,5 +65,5 @@ server.post('/newproject', async (req, res) => {
   });
 });
 //servidor estáticos
-const staticServer = './web/dist';
+const staticServer = './src/public-react';
 server.use(express.static(staticServer));

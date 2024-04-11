@@ -1,52 +1,52 @@
-import { useState, useEffect } from "react";
-import Header from "./Header";
-import Preview from "./Preview";
-import LinkButton from "./LinkButton";
-import Form from "./Form";
-import Footer from "./Footer";
-import localStorage from "../services/localStorage";
-import "../scss/App.scss";
-import "../scss/components/Main.scss";
-import { Routes, Route } from "react-router-dom";
-import ProjectList from "./projects/ProjectList";
-import Hero from "./Hero";
+import { useState, useEffect } from 'react';
+import Header from './Header';
+import Preview from './Preview';
+import LinkButton from './LinkButton';
+import Form from './Form';
+import Footer from './Footer';
+import localStorage from '../services/localStorage';
+import '../scss/App.scss';
+import '../scss/components/Main.scss';
+import { Routes, Route } from 'react-router-dom';
+import ProjectList from './projects/ProjectList';
+import Hero from './Hero';
 
 function App() {
   const [infoProject, setInfoProject] = useState(
-    localStorage.get("infoProject") || {
-      name: "",
-      slogan: "",
-      repo: "",
-      demo: "",
-      technologies: "",
-      desc: "",
-      autor: "",
-      job: "",
+    localStorage.get('infoProject') || {
+      name: '',
+      slogan: '',
+      repo: '',
+      demo: '',
+      technologies: '',
+      desc: '',
+      autor: '',
+      job: '',
       image:
-        "https://afiescuela.storage.googleapis.com/cms_multimedia/cms_medias/files/000/001/538/original/margaret.png?1607668400",
+        'https://afiescuela.storage.googleapis.com/cms_multimedia/cms_medias/files/000/001/538/original/margaret.png?1607668400',
       photo:
-        "https://cdn.evalart.com/wp-content/uploads/2019/06/MujeresenTIPioneras.png",
+        'https://cdn.evalart.com/wp-content/uploads/2019/06/MujeresenTIPioneras.png',
     }
   );
 
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState('');
 
   const handleProjectInfo = (value, id) => {
     setInfoProject({ ...infoProject, [id]: value });
-    console.log(infoProject);
+    console.log('info', infoProject);
   };
 
   const [projectlistData, setProjectlistData] = useState([]);
 
   const getProjectList = async () => {
     try {
-      const response = await fetch("/projectlist");
+      const response = await fetch('/projectlist');
       const data = await response.json();
-      console.log(data);
+      console.log('data', data);
       setProjectlistData(data.message);
-      console.log(projectlistData);
+      console.log('hola', projectlistData);
     } catch (error) {
-      console.error("Error fetching project list:", error);
+      console.error('Error fetching project list:', error);
     }
   };
 
@@ -55,25 +55,25 @@ function App() {
   }, []);
 
   const onClickSave = () => {
-    fetch("https://dev.adalab.es/api/projectCard", {
-      method: "POST",
+    fetch('https://dev.adalab.es/api/projectCard', {
+      method: 'POST',
       body: JSON.stringify(infoProject),
-      headers: { "Content-type": "application/json" },
+      headers: { 'Content-type': 'application/json' },
     })
       .then((response) => response.json())
       .then((result) => {
         setUrl(result.cardURL);
-        console.log(result);
+        console.log('result', result);
         if (result.success) {
-          localStorage.set("infoProject", infoProject);
+          localStorage.set('infoProject', infoProject);
         }
       });
   };
   return (
-    <div className="container">
+    <div className='container'>
       <Routes>
         <Route
-          path="/"
+          path='/'
           element={
             <>
               <Header />
@@ -84,14 +84,14 @@ function App() {
           }
         />
         <Route
-          path="/addnewproject"
+          path='/addnewproject'
           element={
             <>
               <Header />
               <Hero />
 
-              <LinkButton to="/projectlist" textContent="Ver proyectos" />
-              <main className="main">
+              <LinkButton to='/projectlist' textContent='Ver proyectos' />
+              <main className='main'>
                 <Preview infoProject={infoProject} cardUrl={url} />
                 <Form
                   onClickSave={onClickSave}
