@@ -22,8 +22,10 @@ function App() {
       desc: "",
       autor: "",
       job: "",
-      image: "",
-      photo: "",
+      image:
+        "https://afiescuela.storage.googleapis.com/cms_multimedia/cms_medias/files/000/001/538/original/margaret.png?1607668400",
+      photo:
+        "https://cdn.evalart.com/wp-content/uploads/2019/06/MujeresenTIPioneras.png",
     }
   );
 
@@ -55,7 +57,6 @@ function App() {
   }, []);
 
   const onClickSave = async () => {
-    // Hacer el fetch con los datos del estado formData
     try {
       const response = await fetch("http://localhost:3000/newproject", {
         method: "POST",
@@ -70,7 +71,6 @@ function App() {
         setUrl(result.id);
         console.log("Datos enviados correctamente");
       } else {
-        // Manejar errores en caso de respuesta no exitosa
         console.error("Error al enviar los datos");
       }
     } catch (error) {
