@@ -3,6 +3,8 @@ const cors = require("cors");
 const mysql = require("mysql2/promise");
 const server = express();
 
+server.set("view engine", "ejs");
+
 server.use(cors());
 server.use(express.json({ limit: "25mb" }));
 
@@ -20,6 +22,17 @@ const getDBConnection = async () => {
 const port = 3000;
 server.listen(port, () => {
   console.log("Server is running on port " + port);
+});
+
+server.get("/detail/:id_project", async (req, res) => {
+  console.log("req.params", req.params.id_project);
+  const connection = await getDBConnection();
+  const sql = `SELECT * FROM projects WHERE id_project = ?`;
+  const [result] = await connection.query(sql, [req.params.id_project]);
+  console.log("result jeje", result);
+  connection.end();
+
+  res.render("detail", { project: result[0] });
 });
 
 server.get("/projectlist", async (req, res) => {
@@ -61,9 +74,11 @@ server.post("/newproject", async (req, res) => {
   res.status(201).json({
     success: true,
     id: projectResult.insertId,
+    url: `http://localhost:3000/detail/${projectResult.insertId}`,
     message: "Todo correcto. Petuardo te quiere.",
   });
 });
+
 //servidor estáticos
 const staticServer = "./src/public-react";
 server.use(express.static(staticServer));

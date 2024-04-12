@@ -2,6 +2,7 @@ import "../scss/components/CardUrl.scss";
 import PropTypes from "prop-types";
 
 function CardUrl({ cardUrl }) {
+  console.log(cardUrl);
   return (
     <div className="messageCardCreated">
       <p>La tarjeta ha sido creada:</p>

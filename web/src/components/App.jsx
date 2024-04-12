@@ -68,7 +68,7 @@ function App() {
 
       if (response.ok) {
         const result = await response.json();
-        setUrl(result.id);
+        setUrl(result.url);
         localStorage.set("infoProject", infoProject);
         console.log("Datos enviados correctamente");
       } else {
