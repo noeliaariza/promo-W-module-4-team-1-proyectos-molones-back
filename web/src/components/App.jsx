@@ -69,6 +69,7 @@ function App() {
       if (response.ok) {
         const result = await response.json();
         setUrl(result.id);
+        localStorage.set("infoProject", infoProject);
         console.log("Datos enviados correctamente");
       } else {
         console.error("Error al enviar los datos");
