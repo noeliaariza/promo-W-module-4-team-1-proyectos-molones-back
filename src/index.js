@@ -25,11 +25,11 @@ server.listen(port, () => {
 });
 
 server.get("/detail/:id_project", async (req, res) => {
-  console.log("req.params", req.params.id_project);
+  const { id_project } = req.params;
   const connection = await getDBConnection();
-  const sql = `SELECT * FROM projects WHERE id_project = ?`;
-  const [result] = await connection.query(sql, [req.params.id_project]);
-  console.log("result jeje", result);
+  const sql = `SELECT * FROM projects, author WHERE fk_idauthor = id_author AND id_project = ?`;
+  const [result] = await connection.query(sql, [id_project]);
+
   connection.end();
 
   res.render("detail", { project: result[0] });

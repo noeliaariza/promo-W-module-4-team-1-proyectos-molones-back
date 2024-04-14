@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail</title>
 </head>
+
 <body>
     <div>
-        <h1> <%=project.name_project%> </h1>
-        <p> <%=project.slogan_project%> </p>
-        <p> <%=project.description_project%> </p>
-        <p> <%=project.technologies_project%> </p>
-       <img src="<%=project.image_project%>" alt="<%=project.name_project%>" />
-      <a href="<%=project.demo_url%>"></a>
-      <a href="<%=project.repo_url%>"></a>
+        <img src="<%= project.image_project %>" alt="<%= project.name_project %>" />
+        <div>
+            <h1>
+                <%= project.name_project %>
+            </h1>
+            <p>
+                <%= project.slogan_project %>
+            </p>
+            <p>
+                <%= project.description_project %>
+            </p>
+            <p>
+                <%= project.technologies_project %>
+            </p>
+            <p>
+                <%= project.name_author %>
+            </p>
+            <img src="<%= project.photo_author %>" alt="<%= project.name_project %>" />
+            <a href="<%= project.demo_url %>"></a>
+            <a href="<%= project.repo_url %>"></a>
+
+        </div>
+
 
     </div>
 </body>
+
 </html>
