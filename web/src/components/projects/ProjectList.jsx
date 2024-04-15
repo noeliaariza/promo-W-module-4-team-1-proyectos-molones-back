@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 function ProjectList({ projectlistData }) {
   return (
     <div>
-      <main>
+      <main className="containerListDetail">
         <Link to={"/addnewproject"}>
           <LinkButton textContent="Nuevo proyecto" />
         </Link>

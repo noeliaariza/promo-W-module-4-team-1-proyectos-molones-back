@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 function ProjectCard({ project }) {
   return (
-    <article className="card">
+    <article className="card" id="hover-card">
       <h2 className="card__projectTitle">
         <span className="card__projectTitle--text">Personal project card</span>
       </h2>

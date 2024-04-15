@@ -13,14 +13,24 @@
   transform: translateY(-45px);
 }
 
+.containerListDetail {
+  display: grid;
+  gap: 20px;
+}
+
+.projectsList{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .card {
-  
+  width: 100%;
   display: grid;
   grid-template-columns: 40% 60%;
-
   color: var(--color-black);
   font: var(--font-card-text);
-
   border-radius: 20px;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
@@ -40,6 +50,31 @@
     linear-gradient(to bottom, var(--color-white) 0%, rgba(0, 0, 0, 0));
   background-origin: border-box;
   background-clip: content-box, border-box;
+  margin-bottom: 20px; 
+  transition: transform 0.3s ease;
+
+  cursor: pointer; 
+}
+
+#hover-card:hover{
+  transform: scale(1.05); 
+}
+
+
+/* Media query para pantallas con ancho igual o mayor a 1180px */
+@media screen and (min-width: 1180px) {
+  .card {
+      width: 75%;
+      margin-right: 20px; 
+  }
+}
+
+/* Media query para pantallas con ancho igual o mayor a 768px */
+@media screen and (max-width: 768px) {
+  .card {
+    width: 100%;
+      margin-right: 0; 
+  }
 }
 
 .card .card__projectTitle {
