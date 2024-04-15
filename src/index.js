@@ -82,3 +82,9 @@ server.post("/newproject", async (req, res) => {
 //servidor estáticos
 const staticServer = "./src/public-react";
 server.use(express.static(staticServer));
+
+//servidor estático css
+const pathServerPublicStyles = "./src/public-css";
+server.use(express.static(pathServerPublicStyles));
+
+server.use(express.static("public"));
