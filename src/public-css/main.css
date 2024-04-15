@@ -91,6 +91,8 @@
     padding-inline: 0.1em;
     z-index: 1;
     background-color: #fff;
+    color: #302c42;
+    font-size: 10px;
   }
   
   .card .card__author {
@@ -112,16 +114,26 @@
   }
   
   .card .card__job {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
     margin-bottom: 0.2rem;
     background-color: #fff;
+    font-size: 16px;
+    color: #909090;
   }
   .centerName {
     text-align: center;
   }
   .card .card__name {
     background-color: #fff;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+    font-weight: 500;
     margin-bottom: 0.2rem;
+  }
+
+  .cardName {
+    font-size: 18px !important;
   }
   
   .card .card__project {
@@ -130,14 +142,20 @@
   }
   
   .card .card__slogan {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Poppins", sans-serif;
     margin-top: -0.2rem;
     margin-bottom: 0.8rem;
     background-color: #fff;
+    color: #575757;
+    font-size: 16px;
   }
 
   .card__description{
     background-color: #fff;
+    font-size: 12px;
+    font-family: "Poppins", sans-serif;
+    color: #505050;
+    
   }
   
   .card .card__descriptionTitle {
@@ -156,9 +174,16 @@
   
   .card .card__technologies {
     font-family: "Montserrat", sans-serif;
-    background-color: #fff;
+    text-align: center;
+    font-size: 12px;
+    color: #505050;
+    
   }
   
+    .card__technologies{
+        background-color:rgba(0, 0, 0, 0.075);
+        border-radius: 15px;
+    }
 
   .icon {
     width: 1.6rem;
@@ -166,12 +191,21 @@
     color: transparent;
     cursor: pointer;
     border-radius: 50%;
-    box-shadow: 0 0 5px 0 #515151;
+    
     background-color: #fff;
   }
   
+  .previewTitle{
+    font-size: 40px;
+    color: #fff;
+    
+  }
+
   .previewSubtitle{
     text-align: center;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 100;
   }
 
   .icon__white {
@@ -203,4 +237,15 @@
     font-family: "Montserrat", sans-serif;
     text-transform: capitalize;
     color: #fff;
+    
+  }
+
+  .footer {
+    display: flex;
+    justify-content: center;
+    padding: 19px;
+  }
+
+  .logoSponsor {
+    height: 46px;
   }
