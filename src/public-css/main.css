@@ -34,7 +34,7 @@
   }
   
   .card {
-    
+    width: 100%;
     display: grid;
     grid-template-columns: 40% 60%;
   
@@ -262,3 +262,24 @@
   .logoSponsor {
     height: 46px;
   }
+
+
+  #button--link {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 10px;
+    text-decoration: none;
+    color: white;
+    border-image-slice: 1;
+    border-radius: 20px;
+    background-color: #bc4b51;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  #button--link:hover {
+    background-color: pink;
+    border-color: pink;
+  }
+  
