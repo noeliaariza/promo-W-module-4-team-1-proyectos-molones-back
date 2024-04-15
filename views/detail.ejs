@@ -26,10 +26,12 @@
         <img class='logoSponsor' src="/images/adalab.png" alt='Logo Adalab' />
     </header>
 
-    <main>
+    <main class="mainContainer">
         <section class="preview">
-            <h1 class="previewTitle">Proyectos molones</h1>
-            <h2 class="previewSubtitle">Escaparate en línea para recoger ideas a través de la tecnología</h2>
+            <div class="mainTitle">
+                <h1 class="previewTitle">Proyectos molones</h1>
+                <h2 class="previewSubtitle">Escaparate en línea para recoger ideas a través de la tecnología</h2>
+            </div>
             <div class="projectImage" style="background-image: url('<%= project.image_project %>')"></div>
 
             <article class="card">
@@ -79,10 +81,10 @@
                 </div>
             </article>
         </section>
-        <footer class='footer'>
-            <img class='logoSponsor' src="/images/adalab.png" alt='Logo Adalab' />
-        </footer>
     </main>
+    <footer class='footer'>
+        <img class='logoSponsor' src="/images/adalab.png" alt='Logo Adalab' />
+    </footer>
 
 </body>
 
