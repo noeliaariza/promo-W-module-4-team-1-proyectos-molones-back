@@ -11,6 +11,9 @@ import { Routes, Route } from "react-router-dom";
 import ProjectList from "./projects/ProjectList";
 import Hero from "./Hero";
 
+const URL = "https://proyectosmolonescreactivas.onrender.com";
+const URL_LOCAL = "http://localhost:3000";
+
 function App() {
   const [infoProject, setInfoProject] = useState(
     localStorage.get("infoProject") || {
@@ -42,7 +45,7 @@ function App() {
 
   const getProjectList = async () => {
     try {
-      const response = await fetch("http://localhost:3000/projectlist");
+      const response = await fetch(`${URL}/projectlist`);
       const data = await response.json();
       //console.log("data", data);
       setProjectlistData(data.message);
@@ -58,7 +61,7 @@ function App() {
 
   const onClickSave = async () => {
     try {
-      const response = await fetch("http://localhost:3000/newproject", {
+      const response = await fetch(`${URL}/newproject`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
