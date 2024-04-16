@@ -29,17 +29,16 @@
   text-align: center;
 
   border-radius: 40px;
-  background-image: linear-gradient(
-    to right,
-    var(--color-dark-lilac) -2%,
-    #6a040f 98%
-  );
+  background-color: #658881;
 
   cursor: pointer;
 
   .get-avatar__upload-field {
     display: none;
   }
+}
+.get-avatar__label:hover {
+  background-color: #6a040f;
 }
 
 .get-avatar__preview {

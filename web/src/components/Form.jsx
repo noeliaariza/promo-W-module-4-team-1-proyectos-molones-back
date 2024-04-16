@@ -36,7 +36,11 @@ function Form({
       <fieldset className='addForm__group'>
         <legend className='addForm__title'>Cuéntanos sobre el proyecto</legend>
         <p className='title2'> Los campos marcados con * son obligatorios </p>
-        <button onClick={onClickReset}>RESET</button>
+        <div className='containeReset'>
+          <button className='buttonReset' onClick={onClickReset}>
+            RESET
+          </button>
+        </div>
 
         <input
           className='addForm__input'

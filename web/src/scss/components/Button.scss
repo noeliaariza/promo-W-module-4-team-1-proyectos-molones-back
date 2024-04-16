@@ -12,16 +12,12 @@
   text-align: center;
 
   border-radius: 40px;
-  background-color: transparent;
-  background-image: linear-gradient(
-    to right,
-    var(--color-dark-lilac) -2%,
-    #6a040f 98%
-  );
+  border: none;
+  background-color: #658881;
 
   cursor: pointer;
 }
 
 .button--large:hover {
-  border-color: var(--color-white);
+  background-color: #6a040f;
 }

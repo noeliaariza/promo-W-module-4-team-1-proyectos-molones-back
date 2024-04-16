@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Header from './Header';
 import Preview from './Preview';
 import LinkButton from './LinkButton';
@@ -103,8 +104,9 @@ function App() {
   return (
     <div className='container'>
       <Routes>
+        <Route path='/' element={<Landing />} />
         <Route
-          path='/'
+          path='/projectlist'
           element={
             <>
               <Header />
@@ -120,8 +122,9 @@ function App() {
             <>
               <Header />
               <Hero />
-
-              <LinkButton to='/projectlist' textContent='Ver proyectos' />
+              <Link to={'/projectlist'} style={{ textDecoration: 'none' }}>
+                <LinkButton textContent='Ver proyectos' />
+              </Link>
               <main className='main'>
                 <Preview infoProject={infoProject} cardUrl={url} />
                 <Form
