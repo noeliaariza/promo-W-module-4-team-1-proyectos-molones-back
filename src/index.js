@@ -3,6 +3,8 @@ const cors = require("cors");
 const mysql = require("mysql2/promise");
 const server = express();
 
+require("dotenv").config();
+
 server.set("view engine", "ejs");
 
 server.use(cors());
@@ -12,7 +14,7 @@ const getDBConnection = async () => {
   const connection = await mysql.createConnection({
     host: "sql.freedb.tech",
     user: "freedb_noelia_admin",
-    password: "3!FaVAnvA6ex4*h",
+    password: process.env.PASSWORD_DB,
     database: "freedb_team1-proyectos-molones",
   });
   connection.connect();
@@ -74,7 +76,7 @@ server.post("/newproject", async (req, res) => {
   res.status(201).json({
     success: true,
     id: projectResult.insertId,
-    url: `http://localhost:3000/detail/${projectResult.insertId}`,
+    url: `${process.env.URL}/detail/${projectResult.insertId}`,
     message: "Todo correcto. Petuardo te quiere.",
   });
 });
