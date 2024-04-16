@@ -1,40 +1,41 @@
-import { useState, useEffect } from "react";
-import Header from "./Header";
-import Preview from "./Preview";
-import LinkButton from "./LinkButton";
-import Form from "./Form";
-import Footer from "./Footer";
-import localStorage from "../services/localStorage";
-import "../scss/App.scss";
-import "../scss/components/Main.scss";
-import { Routes, Route } from "react-router-dom";
-import ProjectList from "./projects/ProjectList";
-import Hero from "./Hero";
+import { useState, useEffect } from 'react';
+import Header from './Header';
+import Preview from './Preview';
+import LinkButton from './LinkButton';
+import Form from './Form';
+import Footer from './Footer';
+import localStorage from '../services/localStorage';
+import '../scss/App.scss';
+import '../scss/components/Main.scss';
+import { Routes, Route } from 'react-router-dom';
+import ProjectList from './projects/ProjectList';
+import Hero from './Hero';
+import Landing from './Landing';
 
-const URL = "https://proyectosmolonescreactivas.onrender.com";
-const URL_LOCAL = "http://localhost:3000";
+const URL = 'http://localhost:3000';
+const URL_LOCAL = 'https://proyectosmolonescreactivas.onrender.com';
 
 function App() {
   const [infoProject, setInfoProject] = useState(
-    localStorage.get("infoProject") || {
-      name: "",
-      slogan: "",
-      repo: "",
-      demo: "",
-      technologies: "",
-      desc: "",
-      autor: "",
-      job: "",
+    localStorage.get('infoProject') || {
+      name: '',
+      slogan: '',
+      repo: '',
+      demo: '',
+      technologies: '',
+      desc: '',
+      autor: '',
+      job: '',
       image:
-        "https://afiescuela.storage.googleapis.com/cms_multimedia/cms_medias/files/000/001/538/original/margaret.png?1607668400",
+        'https://afiescuela.storage.googleapis.com/cms_multimedia/cms_medias/files/000/001/538/original/margaret.png?1607668400',
       photo:
-        "https://cdn.evalart.com/wp-content/uploads/2019/06/MujeresenTIPioneras.png",
+        'https://cdn.evalart.com/wp-content/uploads/2019/06/MujeresenTIPioneras.png',
     }
   );
 
   // NEW PUSH
 
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState('');
 
   const handleProjectInfo = (value, id) => {
     setInfoProject({ ...infoProject, [id]: value });
@@ -51,7 +52,7 @@ function App() {
       setProjectlistData(data.message);
       //console.log("hola", projectlistData);
     } catch (error) {
-      console.error("Error fetching project list:", error);
+      console.error('Error fetching project list:', error);
     }
   };
 
@@ -62,9 +63,9 @@ function App() {
   const onClickSave = async () => {
     try {
       const response = await fetch(`${URL}/newproject`, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(infoProject),
       });
@@ -72,20 +73,38 @@ function App() {
       if (response.ok) {
         const result = await response.json();
         setUrl(result.url);
-        localStorage.set("infoProject", infoProject);
-        console.log("Datos enviados correctamente");
+        localStorage.set('infoProject', infoProject);
+        console.log('Datos enviados correctamente');
       } else {
-        console.error("Error al enviar los datos");
+        console.error('Error al enviar los datos');
       }
     } catch (error) {
-      console.error("Error en la solicitud:", error);
+      console.error('Error en la solicitud:', error);
     }
   };
+
+  const handleReset = () => {
+    setInfoProject({
+      name: '',
+      slogan: '',
+      repo: '',
+      demo: '',
+      technologies: '',
+      desc: '',
+      autor: '',
+      job: '',
+      image:
+        'https://afiescuela.storage.googleapis.com/cms_multimedia/cms_medias/files/000/001/538/original/margaret.png?1607668400',
+      photo:
+        'https://cdn.evalart.com/wp-content/uploads/2019/06/MujeresenTIPioneras.png',
+    });
+    localStorage.clear();
+  };
   return (
-    <div className="container">
+    <div className='container'>
       <Routes>
         <Route
-          path="/"
+          path='/'
           element={
             <>
               <Header />
@@ -96,20 +115,21 @@ function App() {
           }
         />
         <Route
-          path="/addnewproject"
+          path='/addnewproject'
           element={
             <>
               <Header />
               <Hero />
 
-              <LinkButton to="/projectlist" textContent="Ver proyectos" />
-              <main className="main">
+              <LinkButton to='/projectlist' textContent='Ver proyectos' />
+              <main className='main'>
                 <Preview infoProject={infoProject} cardUrl={url} />
                 <Form
                   onClickSave={onClickSave}
                   onChangeValue={handleProjectInfo}
                   cardUrl={url}
                   infoProject={infoProject}
+                  handleReset={handleReset}
                 />
               </main>
             </>

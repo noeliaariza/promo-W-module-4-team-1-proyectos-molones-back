@@ -3,7 +3,13 @@ import Button from './Button';
 import GetAvatar from './GetAvatar';
 import CardUrl from './CardUrl';
 
-function Form({ onChangeValue, onClickSave, cardUrl, infoProject }) {
+function Form({
+  onChangeValue,
+  onClickSave,
+  cardUrl,
+  infoProject,
+  handleReset,
+}) {
   const handleInfoProject = (event, id) => {
     if (event.target?.result) {
       onChangeValue(event.target.result, id);
@@ -11,6 +17,11 @@ function Form({ onChangeValue, onClickSave, cardUrl, infoProject }) {
       const { value, id } = event.target;
       onChangeValue(value, id);
     }
+  };
+
+  const onClickReset = (ev) => {
+    ev.preventDefault();
+    handleReset();
   };
 
   return (
@@ -25,6 +36,8 @@ function Form({ onChangeValue, onClickSave, cardUrl, infoProject }) {
       <fieldset className='addForm__group'>
         <legend className='addForm__title'>Cuéntanos sobre el proyecto</legend>
         <p className='title2'> Los campos marcados con * son obligatorios </p>
+        <button onClick={onClickReset}>RESET</button>
+
         <input
           className='addForm__input'
           type='text'
@@ -133,6 +146,7 @@ Form.propTypes = {
   onClickSave: PropTypes.func,
   cardUrl: PropTypes.string,
   infoProject: PropTypes.object,
+  handleReset: PropTypes.func,
 };
 
 export default Form;
