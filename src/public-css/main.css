@@ -265,3 +265,8 @@
   background-color: pink;
   border-color: pink;
 }
+
+#wrapper {
+  display: flex;
+  justify-content: center;
+}
