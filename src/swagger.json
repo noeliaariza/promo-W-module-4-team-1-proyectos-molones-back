@@ -1,0 +1,215 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Proyectos molones cREACTivas",
+      "version": "1.0.0",
+      "description": "API para la gestión de proyectos y autores"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3000",
+        "description": "Servidor de desarrollo local"
+      },
+      {
+        "url": "https://proyectosmolonescreactivas.onrender.com/",
+        "description": "Servidor de desarrollo producción"
+      }
+    ],
+    "paths": {
+      "/projectlist": {
+        "get": {
+          "summary": "Lista todos los proyectos disponibles en la BBDD",
+          "responses": {
+            "200": {
+              "status": "success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "success": {
+                        "type": "string"
+                      },
+                      "projects": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/components/schemas/Project"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/newproject": {
+        "post": {
+          "summary": "Crea un nuevo proyecto",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewProject"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "status": "success"
+            }
+          }
+        }
+      },
+      "/detail/:id_project": {
+        "get": {
+          "summary": "Obtiene detalles de un proyecto específico",
+          "parameters": [
+            {
+              "name": "id_project",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "status": "success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "success": {
+                        "type": "string"
+                      },
+                      "projects": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/components/schemas/ProjectID"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "Project": {
+          "type": "object",
+          "properties": {
+            "name_author": {
+              "type": "string"
+            },
+            "job_author": {
+                "type": "string"
+              },
+            "photo_author": {
+            "type": "string"
+            },
+            "name_project": {
+                "type": "string"
+              },
+            "slogan_project": {
+                "type": "string"
+            },
+            "description_project": {
+                "type": "string"
+              },
+            "technologies_project": {
+                "type": "string"
+            },
+            "image_project": {
+                "type": "string"
+            },
+            "demo_url": {
+                "type": "string"
+            },
+            "repo_url": {
+                "type": "string"
+            }
+          }
+        },
+        "NewProject": {
+          "type": "object",
+          "properties": {
+            "name_author": {
+              "type": "string"
+            },
+            "job_author": {
+                "type": "string"
+              },
+            "photo_author": {
+            "type": "string"
+            },
+            "name_project": {
+                "type": "string"
+              },
+            "slogan_project": {
+                "type": "string"
+            },
+            "description_project": {
+                "type": "string"
+              },
+            "technologies_project": {
+                "type": "string"
+            },
+            "image_project": {
+                "type": "string"
+            },
+            "demo_url": {
+                "type": "string"
+            },
+            "repo_url": {
+                "type": "string"
+            }
+          }
+        },
+        "ProjectID": {
+          "type": "object",
+          "properties": {
+            "name_author": {
+              "type": "string"
+            },
+            "job_author": {
+                "type": "string"
+              },
+            "photo_author": {
+            "type": "string"
+            },
+            "name_project": {
+                "type": "string"
+              },
+            "slogan_project": {
+                "type": "string"
+            },
+            "description_project": {
+                "type": "string"
+              },
+            "technologies_project": {
+                "type": "string"
+            },
+            "image_project": {
+                "type": "string"
+            },
+            "demo_url": {
+                "type": "string"
+            },
+            "repo_url": {
+                "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
